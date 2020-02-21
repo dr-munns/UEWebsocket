@@ -102,12 +102,12 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "WebSocket")
 	static bool ObjectToJson(UObject* Object, FString& data);
 
-	static bool JsonValueToUProperty(TSharedPtr<FJsonValue> JsonValue, UProperty* Property, void* OutValue, int64 CheckFlags, int64 SkipFlags);
-	static bool ConvertScalarJsonValueToUProperty(TSharedPtr<FJsonValue> JsonValue, UProperty* Property, void* OutValue, int64 CheckFlags, int64 SkipFlags);
+	static bool JsonValueToUProperty(TSharedPtr<FJsonValue> JsonValue, FProperty* Property, void* OutValue, int64 CheckFlags, int64 SkipFlags);
+	static bool ConvertScalarJsonValueToUProperty(TSharedPtr<FJsonValue> JsonValue, FProperty* Property, void* OutValue, int64 CheckFlags, int64 SkipFlags);
 	static bool JsonObjectToUStruct(const TSharedRef<FJsonObject>& JsonObject, const UStruct* StructDefinition, void* OutStruct, int64 CheckFlags, int64 SkipFlags);
 	static bool JsonAttributesToUStruct(const TMap< FString, TSharedPtr<FJsonValue> >& JsonAttributes, const UStruct* StructDefinition, void* OutStruct, int64 CheckFlags, int64 SkipFlags);
 	static bool UObjectToJsonObject(const UStruct* StructDefinition, const void* Struct, TSharedRef<FJsonObject> OutJsonObject, int64 CheckFlags, int64 SkipFlags);
 	static bool UObjectToJsonAttributes(const UStruct* StructDefinition, const void* Struct, TMap< FString, TSharedPtr<FJsonValue> >& OutJsonAttributes, int64 CheckFlags, int64 SkipFlags);
-	static TSharedPtr<FJsonValue> UPropertyToJsonValue(UProperty* Property, const void* Value, int64 CheckFlags, int64 SkipFlags);
-	static TSharedPtr<FJsonValue> ConvertScalarUPropertyToJsonValue(UProperty* Property, const void* Value, int64 CheckFlags, int64 SkipFlags);
+	static TSharedPtr<FJsonValue> UPropertyToJsonValue(FProperty* Property, const void* Value, int64 CheckFlags, int64 SkipFlags);
+	static TSharedPtr<FJsonValue> ConvertScalarUPropertyToJsonValue(FProperty* Property, const void* Value, int64 CheckFlags, int64 SkipFlags);
 };

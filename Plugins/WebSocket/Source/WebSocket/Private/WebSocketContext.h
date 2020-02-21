@@ -25,7 +25,6 @@
 #include "Tickable.h"
 
 #if PLATFORM_UWP
-#elif PLATFORM_HTML5
 #elif PLATFORM_WINDOWS  
 #include "PreWindowsApi.h"
 #include "libwebsockets.h"
@@ -62,7 +61,6 @@ public:
 	UWebSocketBase* Connect(const FString& uri, bool& connectFail);
 	UWebSocketBase* Connect(const FString& uri, const TMap<FString, FString>& header, bool& connectFail);
 #if PLATFORM_UWP
-#elif PLATFORM_HTML5
 #else
 	static int callback_echo(struct lws *wsi, enum lws_callback_reasons reason, void *user, void *in, size_t len);
 #endif
@@ -70,7 +68,6 @@ public:
 private:
 
 #if PLATFORM_UWP
-#elif PLATFORM_HTML5
 #else
 	struct lws_context* mlwsContext;
 	std::string mstrCAPath;
